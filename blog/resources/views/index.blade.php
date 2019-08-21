@@ -1,27 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Home</title>
-</head>
-<body>
+@extends('master')
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-        Banner
-        </div>
-    </div>
+@section('title')
+Home Page | My First Page
+@endsection
 
-    <div class="row">
-        <div class="col-lg-12">
-        Menu
-        </div>
-    </div>
-   
+@section('maincontent')
+
     <div class="row">
         <div class="col-lg-6">
           1
@@ -47,13 +31,4 @@
          </div>
     </div>
 
-    <div class="row">
-        <div class="col-lg-12">
-        Copyright
-        </div>
-    </div>
-
-</div><!--Container Close-->
-    
-</body>
-</html>
+    @endsection
