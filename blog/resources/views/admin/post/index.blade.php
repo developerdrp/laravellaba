@@ -1,4 +1,5 @@
 @extends('admin.master')
+
 @section('maincontent')
 
 <div id="content-wrapper">
@@ -10,10 +11,10 @@
           <li class="breadcrumb-item">
             <a href="#">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">Category</li>
+          <li class="breadcrumb-item active">Post</li>
         </ol>
 
-<style>
+        <style>
   .uper {
     margin-top: 40px;
   }
@@ -30,24 +31,26 @@
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-            All Category</div>
+            All Post</div>
           <div class="card-body">
             <div class="table-responsive">
 
-            @if(count($cats)>=1)
+            @if(count($p)>=1)
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>name</th>
+                    <th>Title</th>
+                    <th>Heading</th>
                     <th>Status</th>
                     <th>Functions</th>
                   </tr>
                 </thead>
                 <tfoot>
                   <tr>
-                  <th>ID</th>
-                    <th>name</th>
+                     <th>ID</th>
+                    <th>Title</th>
+                    <th>Heading</th>
                     <th>Status</th>
                     <th>Functions</th>
                   </tr>
@@ -55,10 +58,11 @@
                 <tbody>
 
 
-              @foreach($cats as $item)
+              @foreach($p as $item)
                   <tr>
                     <td>{{$item->id}}</td>
-                    <td>{{$item->name}}t</td>
+                    <td>{{$item->title}}</td>
+                    <td>{{$item->heading}}</td>
                     <td>{{$item->status}}</td>
                     <td>Edit | Delete </td>
                   </tr>

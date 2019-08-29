@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
+use App\Models\Category;
 
 class PostController extends Controller
 {
@@ -13,7 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $p=Post::all();
+        return view('admin.post.index', compact('p'));
     }
 
     /**
@@ -23,7 +26,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $cat=Category::all();
+        return view('admin.post.create', compact('cat'));
     }
 
     /**
