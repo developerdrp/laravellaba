@@ -7,6 +7,11 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -68,7 +73,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cats = Category::find($id);
+
+        return view('admin.category.edit', compact('cats'));
     }
 
     /**
@@ -80,7 +87,17 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'=>'required|string|min:5|max:250',
+            'description'=> 'nullable',
+            'status' => 'required|boolean'
+          ]);
+          $cats = Category::find($id);
+          $cats->name = $request->get('name');
+          $cats->description = $request->get('descriptoin');
+          $cats->status = $request->get('status');
+          $cats->save();
+          return redirect('/category')->with('success', 'Category Updated Successfully');
     }
 
     /**
@@ -91,6 +108,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $cats = Category::find($id);
+        $cats->delete();
+   
+        return redirect('/category')->with('success', 'Category has been deleted Successfully');
     }
 }

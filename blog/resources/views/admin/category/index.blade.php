@@ -58,9 +58,19 @@
               @foreach($cats as $item)
                   <tr>
                     <td>{{$item->id}}</td>
-                    <td>{{$item->name}}t</td>
+                    <td>{{$item->name}}</td>
                     <td>{{$item->status}}</td>
-                    <td>Edit | Delete </td>
+                    <td>
+                    
+                    <a href="{{ route('category.edit',$item->id)}}" class="btn btn-primary">Edit</a> |
+                    
+                <form action="{{ route('category.destroy', $item->id)}}" method="post">
+                  @csrf
+                  @method('DELETE')
+                  <button class="btn btn-danger" type="submit">Delete</button>
+               </form>
+
+                 </td>
                   </tr>
               @endforeach
                   

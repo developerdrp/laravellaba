@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'homeController@index');
+Route::get('/', 'frontController@index');
 Route::get('/contact', 'homeController@contact');
 Route::resource('/category', 'CategoryController');
 Route::resource('/post', 'PostController');
@@ -25,3 +25,6 @@ Route::get('/about', function()
 {
    return view('about');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
