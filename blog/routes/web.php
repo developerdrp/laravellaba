@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'frontController@index');
+Route::get('/', 'FrontController@index');
 Route::get('/contact', 'homeController@contact');
 Route::resource('/category', 'CategoryController');
 Route::resource('/post', 'PostController');

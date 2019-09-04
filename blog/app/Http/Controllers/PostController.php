@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
+use Auth;
 
 class PostController extends Controller
 {
@@ -43,7 +44,18 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $posts = new Post([
+            'categories_id' => $request->get('categories_id'),
+            'title'=> $request->get('title'),
+            'keyword'=> $request->get('keyword'),
+            'description'=> $request->get('description'),
+            'heading'=> $request->get('heading'),
+            'details'=> $request->get('details'),
+            'users_id'=> Auth::user()->id,
+            'status'=> $request->get('status')
+          ]);
+          $posts->save();
+          return redirect('/post')->with('success', 'Post Added Successfully');
     }
 
     /**
