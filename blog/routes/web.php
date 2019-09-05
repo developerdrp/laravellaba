@@ -15,6 +15,8 @@ Route::get('/', 'FrontController@index');
 Route::get('/contact', 'homeController@contact');
 Route::resource('/category', 'CategoryController');
 Route::resource('/post', 'PostController');
+Route::get('cats/{id}','FrontController@catlist');
+Route::get('details/{id}','FrontController@details');
 
 Route::get('/hello', function ()
 {
