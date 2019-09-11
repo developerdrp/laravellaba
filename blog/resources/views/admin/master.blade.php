@@ -129,9 +129,9 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="/send/email">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
+          <span>Send Email</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="tables.html">

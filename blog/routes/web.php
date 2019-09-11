@@ -18,6 +18,8 @@ Route::resource('/post', 'PostController');
 Route::get('cats/{id}','FrontController@catlist');
 Route::get('details/{id}','FrontController@details');
 
+Route::get('/send/email', 'HomeController@mail');
+
 Route::get('/hello', function ()
 {
   return " Hi";
@@ -28,5 +30,6 @@ Route::get('/about', function()
    return view('about');
 });
 Auth::routes();
+Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 
 Route::get('/home', 'HomeController@index')->name('home');
